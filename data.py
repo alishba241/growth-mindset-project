@@ -9,7 +9,7 @@ st.markdown("""
     <style>
         /* Background Gradient */
         .stApp {
-background: gray;
+           background: gray;
             color: black;
             font-family: 'Arial', sans-serif;
         }
@@ -93,7 +93,9 @@ if upload_file:
 
     # ** Column Renaming
     st.subheader("✏️ Rename Columns")
-    new_column_names = {col: st.text_input(f'Rename `{col}`', col) for col in cleaned_df.columns}
+    new_column_names = {
+        col: st.text_input(f'Rename `{col}`', col) for col in cleaned_df.columns
+        }
     cleaned_df.rename(columns=new_column_names, inplace=True)
 
     # **Cleaning Options
@@ -106,7 +108,11 @@ if upload_file:
         st.success("✅ Duplicate rows removed!")
 
     # ** Filtering Columns
-    selected_columns = st.multiselect("Select Columns to Keep", cleaned_df.columns, default=cleaned_df.columns.tolist())
+    selected_columns = st.multiselect(
+        "Select Columns to Keep", 
+        cleaned_df.columns, 
+        default=cleaned_df.columns.tolist()
+        )
     cleaned_df = cleaned_df[selected_columns]
 
     # ** Convert Text Columns to Lowercase
