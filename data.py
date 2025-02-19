@@ -9,7 +9,7 @@ st.markdown("""
     <style>
         /* Background Gradient */
         .stApp {
-           background: gray;
+           background: linear-gradient(to right, pink, wheat);
             color: black;
             font-family: 'Arial', sans-serif;
         }
